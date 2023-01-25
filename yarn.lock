@@ -73,6 +73,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cloudflare@npm:^2.7.9":
+  version: 2.7.9
+  resolution: "@types/cloudflare@npm:2.7.9"
+  checksum: d3d69b758587d5b0ea56b176c846feaf3318f3505910249eafb0c77456129e41115e3b0396692a5e5126efd21675049d1f72c2606f130c02daea9a5c0f996b6e
+  languageName: node
+  linkType: hard
+
 "@types/dns-packet@npm:^5.2.4":
   version: 5.2.4
   resolution: "@types/dns-packet@npm:5.2.4"
@@ -136,6 +143,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:."
   dependencies:
+    "@types/cloudflare": ^2.7.9
     "@types/dns-packet": ^5.2.4
     "@types/node": ^18.11.18
     cloudflare: ^2.9.1

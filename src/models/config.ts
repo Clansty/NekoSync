@@ -18,6 +18,7 @@ let config: {
   port: number;
   cfToken: string;
   nic: string;
+  zoneId: string;
   defaults: {
     pub: ResolveType;
     priv: ResolveType;
