@@ -15,7 +15,7 @@ export default class {
 
     this.server.on("request", (request: dnsPacket.Packet, response: (packet: dnsPacket.Packet) => any, rinfo: RemoteInfo) => {
       for (const question of request.questions) {
-        console.log('Query for', question.name, question.type);
+        console.log("Query for", question.name, question.type);
 
         const components = dnsUtils.getDomainComponents(question.name);
         const host = components.zones.find((it) => it.zone === getConfig().domain);
@@ -23,7 +23,7 @@ export default class {
           response(dnsUtils.createNotFoundResponseFromRequest(request));
           continue;
         }
-        const config = getConfig().records[host.host];
+        let config = getConfig().records[host.host];
         if (!config) {
           response(dnsUtils.createNotFoundResponseFromRequest(request));
           continue;
@@ -31,23 +31,35 @@ export default class {
 
         const answers: dnsPacket.Answer[] = [];
 
+        let name = question.name;
         const addV4Answer = () => {
           answers.push({
             type: "A",
-            data: config.v4,
-            name: question.name,
+            data: (config as any).v4,
+            name,
             ttl: 60,
           });
         };
         const addV6Answer = () => {
           answers.push({
             type: "AAAA",
-            data: config.v6 || eui64.getIP(config.mac),
-            name: question.name,
+            data: (config as any).v6 || eui64.getIP((config as any).mac),
+            name,
             ttl: 60,
           });
         };
 
+        while ("alias" in config) {
+          const oldName = name;
+          name = config.alias + "." + getConfig().domain;
+          config = getConfig().records[config.alias];
+          answers.push({
+            type: "CNAME",
+            name: oldName,
+            data: name,
+            ttl: 60,
+          });
+        }
         switch (config.priv || getConfig().defaults.priv) {
           case 4:
             addV4Answer();

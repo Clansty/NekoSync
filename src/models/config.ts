@@ -23,16 +23,18 @@ let config: {
     priv: ResolveType;
   };
   records: {
-    [host: string]: Host & {
-      pub?: ResolveType;
-      priv?: ResolveType;
-    };
+    [host: string]:
+      | (Host & {
+          pub?: ResolveType;
+          priv?: ResolveType;
+        })
+      | { alias: string };
   };
 };
 
 export const getConfig = () => config;
 export const reloadConfig = async () => {
-  console.log('Reload config...');
+  console.log("Reload config...");
 
   config = YAML.parse(await fsP.readFile(process.env.CONFIG || "./config.yaml", "utf-8"));
 };
