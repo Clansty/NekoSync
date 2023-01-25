@@ -4,10 +4,11 @@
     "target": "ESNext",
     "outDir": "build",
     "rootDir": "src",
-    "moduleResolution": "node",
-    "module": "CommonJS",
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules"]
 }

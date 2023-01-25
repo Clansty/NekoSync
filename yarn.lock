@@ -140,9 +140,14 @@ __metadata:
     "@types/node": ^18.11.18
     cloudflare: ^2.9.1
     dns-packet: ^5.4.0
+    ip6: ^0.2.10
     ts-node: ^10.9.1
     tsc: ^2.0.4
     typescript: ^4.9.4
+    yaml: ^2.2.1
+  dependenciesMeta:
+    ts-node@10.9.1:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
@@ -273,6 +278,15 @@ __metadata:
     agent-base: 6
     debug: 4
   checksum: 571fccdf38184f05943e12d37d6ce38197becdd69e58d03f43637f7fa1269cf303a7d228aa27e5b27bbd3af8f09fd938e1c91dcfefff2df7ba77c20ed8dfc765
+  languageName: node
+  linkType: hard
+
+"ip6@npm:^0.2.10":
+  version: 0.2.10
+  resolution: "ip6@npm:0.2.10"
+  bin:
+    ip6: ip6-cli.js
+  checksum: e543674fe989f61a3557e923767a358fb936372d1de21c2ee442ecd7138cc18a3ef3eb687bd7fef84b77534836634023341cedb33b54d8058f09a8bc09a983ae
   languageName: node
   linkType: hard
 
@@ -447,6 +461,13 @@ __metadata:
   version: 3.0.1
   resolution: "v8-compile-cache-lib@npm:3.0.1"
   checksum: 78089ad549e21bcdbfca10c08850022b22024cdcc2da9b168bcf5a73a6ed7bf01a9cebb9eac28e03cd23a684d81e0502797e88f3ccd27a32aeab1cfc44c39da0
+  languageName: node
+  linkType: hard
+
+"yaml@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "yaml@npm:2.2.1"
+  checksum: 84f68cbe462d5da4e7ded4a8bded949ffa912bc264472e5a684c3d45b22d8f73a3019963a32164023bdf3d83cfb6f5b58ff7b2b10ef5b717c630f40bd6369a23
   languageName: node
   linkType: hard
 
