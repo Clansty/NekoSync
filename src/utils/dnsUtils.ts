@@ -7,6 +7,7 @@ export default {
       type: "response",
       flags,
       answers,
+      questions: request.questions,
     };
   },
 

@@ -15,7 +15,7 @@ export default class {
 
     this.server.on("request", (request: dnsPacket.Packet, response: (packet: dnsPacket.Packet) => any, rinfo: RemoteInfo) => {
       for (const question of request.questions) {
-        console.log("Query for", question.name, question.type);
+        // console.log("Query for", question.name, question.type);
 
         const components = dnsUtils.getDomainComponents(question.name);
         const host = components.zones.find((it) => it.zone === getConfig().domain);

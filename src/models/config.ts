@@ -11,7 +11,7 @@ type Host = {
   mac?: string;
 };
 
-type ResolveType = 4 | 6 | "all";
+type ResolveType = 4 | 6 | "all" | "none";
 
 let config: {
   domain: string;
