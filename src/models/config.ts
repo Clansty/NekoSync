@@ -1,6 +1,5 @@
 import YAML from "yaml";
 import fsP from "fs/promises";
-import fs from "fs";
 
 type Host = {
   // 内网 v4
@@ -16,7 +15,7 @@ type ResolveType = 4 | 6 | "all" | "none";
 let config: {
   domain: string;
   port: number;
-  cfToken: string;
+  cfToken?: string;
   nic: string;
   zoneId: string;
   defaults: {
@@ -39,5 +38,3 @@ export const reloadConfig = async () => {
 
   config = YAML.parse(await fsP.readFile(process.env.CONFIG || "./config.yaml", "utf-8"));
 };
-
-fs.watch(process.env.CONFIG || "./config.yaml", reloadConfig);

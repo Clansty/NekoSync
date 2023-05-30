@@ -30,7 +30,7 @@ export default class {
     });
   }
 
-  private async updateRecord() {
+  public async updateRecord() {
     try {
       const existedRecords = (await this.cf.dnsRecords.browse(getConfig().zoneId)) as GetRecordsRet;
       if (!existedRecords.success) {
