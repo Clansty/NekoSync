@@ -21,6 +21,7 @@ let config: {
   defaults: {
     pub: ResolveType;
     priv: ResolveType;
+    subnet: { [cidr: string]: ResolveType };
   };
   records: {
     [host: string]:

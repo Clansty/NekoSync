@@ -89,6 +89,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ip@npm:^1":
+  version: 1.1.0
+  resolution: "@types/ip@npm:1.1.0"
+  dependencies:
+    "@types/node": "*"
+  checksum: 05e1ef8b525e2f2d73f5cde7ef1e0e7aa1b027946e066b4063f9c8c2fde59a13762ec703e6df32e2db31db1dc3a54f46a7516bd6d970200d175ec7e9700bb83e
+  languageName: node
+  linkType: hard
+
 "@types/keyv@npm:^3.1.1":
   version: 3.1.4
   resolution: "@types/keyv@npm:3.1.4"
@@ -145,9 +154,11 @@ __metadata:
   dependencies:
     "@types/cloudflare": ^2.7.9
     "@types/dns-packet": ^5.2.4
+    "@types/ip": ^1
     "@types/node": ^18.11.18
     cloudflare: ^2.9.1
     dns-packet: ^5.4.0
+    ip: ^1.1.8
     ip6: ^0.2.10
     ts-node: ^10.9.1
     tsc: ^2.0.4
@@ -295,6 +306,13 @@ __metadata:
   bin:
     ip6: ip6-cli.js
   checksum: e543674fe989f61a3557e923767a358fb936372d1de21c2ee442ecd7138cc18a3ef3eb687bd7fef84b77534836634023341cedb33b54d8058f09a8bc09a983ae
+  languageName: node
+  linkType: hard
+
+"ip@npm:^1.1.8":
+  version: 1.1.8
+  resolution: "ip@npm:1.1.8"
+  checksum: a2ade53eb339fb0cbe9e69a44caab10d6e3784662285eb5d2677117ee4facc33a64679051c35e0dfdb1a3983a51ce2f5d2cb36446d52e10d01881789b76e28fb
   languageName: node
   linkType: hard
 

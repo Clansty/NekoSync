@@ -4,6 +4,7 @@ import dnsPacket from "dns-packet";
 import { RemoteInfo } from "dgram";
 import dnsUtils from "../utils/dnsUtils.js";
 import eui64 from "../utils/eui64.js";
+import ip from "ip";
 
 export default class {
   private server: DnsServer;
@@ -15,7 +16,7 @@ export default class {
 
     this.server.on("request", (request: dnsPacket.Packet, response: (packet: dnsPacket.Packet) => any, rinfo: RemoteInfo) => {
       for (const question of request.questions) {
-        // console.log("Query for", question.name, question.type);
+        console.log(rinfo.address, "Query for", question.name, question.type);
 
         const components = dnsUtils.getDomainComponents(question.name);
         const host = components.zones.find((it) => it.zone === getConfig().domain);
@@ -60,7 +61,10 @@ export default class {
             ttl: 60,
           });
         }
-        switch (config.priv || getConfig().defaults.priv) {
+
+        const cidrConfig = Object.entries(getConfig().defaults.subnet).find(([cidr, conf]) => ip.cidrSubnet(cidr).contains(rinfo.address))?.[1];
+
+        switch (config.priv || cidrConfig || getConfig().defaults.priv) {
           case 4:
             addV4Answer();
             break;
