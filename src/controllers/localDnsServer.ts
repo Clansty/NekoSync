@@ -66,14 +66,14 @@ export default class {
 
         switch (config.priv || cidrConfig || getConfig().defaults.priv) {
           case 4:
-            addV4Answer();
+            question.type === "A" && addV4Answer();
             break;
           case 6:
-            addV6Answer();
+            question.type === "AAAA" && addV6Answer();
             break;
           case "all":
-            addV4Answer();
-            addV6Answer();
+            question.type === "A" && addV4Answer();
+            question.type === "AAAA" && addV6Answer();
             break;
         }
 
